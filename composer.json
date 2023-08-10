@@ -63,6 +63,5 @@
                 "Hchoilabs\\LaravelCognitoAuth\\CognitoAuthServiceProvider"
             ]
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

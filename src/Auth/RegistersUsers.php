@@ -4,8 +4,8 @@ namespace Hchoilabs\LaravelCognitoAuth\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
-use BlackBits\LaravelCognitoAuth\CognitoClient;
-use BlackBits\LaravelCognitoAuth\Exceptions\InvalidUserFieldException;
+use Hchoilabs\LaravelCognitoAuth\CognitoClient;
+use Hchoilabs\LaravelCognitoAuth\Exceptions\InvalidUserFieldException;
 use Illuminate\Foundation\Auth\RegistersUsers as BaseSendsRegistersUsers;
 
 trait RegistersUsers

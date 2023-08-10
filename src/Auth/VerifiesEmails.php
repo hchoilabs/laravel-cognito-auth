@@ -3,7 +3,7 @@
 namespace Hchoilabs\LaravelCognitoAuth\Auth;
 
 use Illuminate\Http\Request;
-use BlackBits\LaravelCognitoAuth\CognitoClient;
+use Hchoilabs\LaravelCognitoAuth\CognitoClient;
 use Illuminate\Foundation\Auth\VerifiesEmails as BaseVerifiesEmails;
 
 trait VerifiesEmails

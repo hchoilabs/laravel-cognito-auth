@@ -4,7 +4,7 @@ namespace Hchoilabs\LaravelCognitoAuth\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
-use BlackBits\LaravelCognitoAuth\CognitoClient;
+use Hchoilabs\LaravelCognitoAuth\CognitoClient;
 use Illuminate\Foundation\Auth\ResetsPasswords as BaseResetsPasswords;
 
 trait ResetsPasswords
