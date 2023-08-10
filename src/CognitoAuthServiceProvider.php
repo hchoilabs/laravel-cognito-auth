@@ -1,6 +1,6 @@
 <?php
 
-namespace BlackBits\LaravelCognitoAuth;
+namespace Hchoilabs\LaravelCognitoAuth;
 
 use Illuminate\Support\Arr;
 use Illuminate\Foundation\Application;

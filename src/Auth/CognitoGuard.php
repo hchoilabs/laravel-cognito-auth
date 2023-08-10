@@ -1,6 +1,6 @@
 <?php
 
-namespace BlackBits\LaravelCognitoAuth\Auth;
+namespace Hchoilabs\LaravelCognitoAuth\Auth;
 
 use Aws\Result;
 use Illuminate\Auth\SessionGuard;

@@ -1,6 +1,6 @@
 <?php
 
-namespace BlackBits\LaravelCognitoAuth\Exceptions;
+namespace Hchoilabs\LaravelCognitoAuth\Exceptions;
 
 class UserNotConfirmedException extends \Exception
 {

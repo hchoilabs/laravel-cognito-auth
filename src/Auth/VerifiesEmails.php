@@ -1,6 +1,6 @@
 <?php
 
-namespace BlackBits\LaravelCognitoAuth\Auth;
+namespace Hchoilabs\LaravelCognitoAuth\Auth;
 
 use Illuminate\Http\Request;
 use BlackBits\LaravelCognitoAuth\CognitoClient;
