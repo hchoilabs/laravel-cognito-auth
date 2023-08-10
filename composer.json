@@ -42,12 +42,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BlackBits\\LaravelCognitoAuth\\": "src"
+            "hchoilabs\\LaravelCognitoAuth\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BlackBits\\LaravelCognitoAuth\\Tests\\": "tests"
+            "hchoilabs\\LaravelCognitoAuth\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -60,7 +60,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BlackBits\\LaravelCognitoAuth\\CognitoAuthServiceProvider"
+                "hchoilabs\\LaravelCognitoAuth\\CognitoAuthServiceProvider"
             ]
         }
     }
