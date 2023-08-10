@@ -1,12 +1,12 @@
 {
-    "name": "black-bits/laravel-cognito-auth",
+    "name": "hchoilabs/laravel-cognito-auth",
     "description": "An auth provider for Laravel for AWS Cognito.",
     "keywords": [
         "BlackBits",
         "AWS Cognito",
         "Auth Provider"
     ],
-    "homepage": "https://github.com/black-bits/laravel-cognito-auth",
+    "homepage": "https://github.com/hchoilabs/laravel-cognito-auth",
     "license": "MIT",
     "authors": [
         {
