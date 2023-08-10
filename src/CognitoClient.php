@@ -79,6 +79,11 @@ class CognitoClient
                 'ClientId' => $this->clientId,
                 'UserPoolId' => $this->poolId,
             ]);
+
+            // save accessToken into session
+            $authenticationResult = $response->get('AuthenticationResult');
+            session()->put('accessToken',  $authenticationResult['AccessToken']);
+
         } catch (CognitoIdentityProviderException $exception) {
             if ($exception->getAwsErrorCode() === self::RESET_REQUIRED ||
                 $exception->getAwsErrorCode() === self::USER_NOT_FOUND) {
@@ -462,5 +467,14 @@ class CognitoClient
         }
 
         return $userAttributes;
+    }
+
+    public function changePassword($token, $oldPassword, $newPassword)
+    {
+        $this->client->changePassword([
+            'AccessToken' => $token,
+            'PreviousPassword'=> $oldPassword,
+            'ProposedPassword' => $newPassword
+        ]);
     }
 }
