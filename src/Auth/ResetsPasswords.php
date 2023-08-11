@@ -38,7 +38,7 @@ trait ResetsPasswords
                 : $this->sendResetFailedResponse($request, $response);
         } catch (CognitoIdentityProviderException $e) {
             $response = $e->getAwsErrorMessage();
-            return $this->sendResetResponse($request, $response);
+            return $this->sendResetFailedResponse($request, $response);
         }
 
 
