@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Hchoilabs\LaravelCognitoAuth\CognitoClient;
 use Illuminate\Foundation\Auth\ResetsPasswords as BaseResetsPasswords;
+use Aws\CognitoIdentityProvider\Exception\CognitoIdentityProviderException;
 
 trait ResetsPasswords
 {
@@ -25,16 +26,22 @@ trait ResetsPasswords
 
         $user = $client->getUser($request->email);
 
-        if (isset($user['UserStatus'])
-            && $user['UserStatus'] == CognitoClient::FORCE_PASSWORD_STATUS) {
-            $response = $this->forceNewPassword($request);
-        } else {
-            $response = $client->resetPassword($request->token, $request->email, $request->password);
+        try {
+            if (isset($user['UserStatus'])
+                && $user['UserStatus'] == CognitoClient::FORCE_PASSWORD_STATUS) {
+                $response = $this->forceNewPassword($request);
+            } else {
+                $response = $client->resetPassword($request->token, $request->email, $request->password);
+            }
+            return $response == Password::PASSWORD_RESET
+                ? $this->sendResetResponse($request, $response)
+                : $this->sendResetFailedResponse($request, $response);
+        } catch (CognitoIdentityProviderException $e) {
+            $response = $e->getAwsErrorMessage();
+            return $this->sendResetResponse($request, $response);
         }
 
-        return $response == Password::PASSWORD_RESET
-            ? $this->sendResetResponse($request, $response)
-            : $this->sendResetFailedResponse($request, $response);
+
     }
 
     /**
