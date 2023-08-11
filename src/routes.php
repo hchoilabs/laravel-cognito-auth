@@ -3,7 +3,7 @@
 Route::group(['middleware' => 'web', 'namespace' => 'App\Http\Controllers'], function () {
     Route::get('/password-reset', 'Auth\ResetPasswordController@showResetForm')
         ->name('cognito.password-reset');
-    Route::post('/password-reset', 'Auth\ResetPasswordController@showResetForm');
+    Route::post('/password-reset', 'Auth\ResetPasswordController@reset');
     Route::get('/email/verify', 'Auth\VerificationController@show')
         ->name('cognito.verification-notice');
     Route::post('/email/verify', 'Auth\VerificationController@verify')
