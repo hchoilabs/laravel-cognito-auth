@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Reset Password') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('password.request') }}" aria-label="{{ __('Reset Password') }}">
+                        <form method="POST" action="{{ route('cognito.password-reset') }}" aria-label="{{ __('Reset Password') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group row">

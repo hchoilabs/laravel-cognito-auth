@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Hchoilabs\LaravelCognitoAuth\CognitoClient;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails as BaseSendsPasswordResetEmails;
+use Aws\CognitoIdentityProvider\Exception\CognitoIdentityProviderException;
 
 trait SendsPasswordResetEmails
 {
@@ -21,11 +22,16 @@ trait SendsPasswordResetEmails
     {
         $this->validateEmail($request);
 
-        $response = app()->make(CognitoClient::class)->sendResetLink($request->email);
+        try{
+            $response = app()->make(CognitoClient::class)->sendResetLink($request->email);
 
-        if ($response == Password::RESET_LINK_SENT) {
-            return redirect(route('cognito.password-reset'));
+            if ($response == Password::RESET_LINK_SENT) {
+                return redirect(route('cognito.password-reset'));
+            }
+        } catch (CognitoIdentityProviderException $e) {
+            $response = $e->getAwsErrorMessage();
         }
+
 
         return $this->sendResetLinkFailedResponse($request, $response);
     }
