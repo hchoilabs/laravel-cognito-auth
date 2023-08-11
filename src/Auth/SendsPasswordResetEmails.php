@@ -26,7 +26,7 @@ trait SendsPasswordResetEmails
             $response = app()->make(CognitoClient::class)->sendResetLink($request->email);
 
             if ($response == Password::RESET_LINK_SENT) {
-                return redirect(route('cognito.password-reset'));
+                return redirect(route('cognito.password-reset', ['email' => $request->email]));
             }
         } catch (CognitoIdentityProviderException $e) {
             $response = $e->getAwsErrorMessage();
